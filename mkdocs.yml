@@ -5,7 +5,7 @@ theme:
 
 nav:
   - Inicio: index.md
-  - Temario: temario.md
+  - Temario: materia-apunte/temario.md
   - Unidades:
       - Unidad 1: unidades/u1-introduccion.md
       - Unidad 2: unidades/u2-sincronizacion.md

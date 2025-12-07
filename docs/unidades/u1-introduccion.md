@@ -24,7 +24,7 @@ Las máquinas de estados finitos Se utilizan para especificar el comportamiento 
 
 Muchos programas concurrentes sueles ser reactivos, es decir su funcionamiento involucra la interacción permanente con el ambiente y otros procesos. Los sistemas reactivos tienen características diferentes a las de los programas transformacionales. En muchos casos estos no computan resultados y suelen no requerir que terminen.
 
-![Sistemas Reactivos](/imagenes/sist_reactivos.png)
+![Sistemas Reactivos](../imagenes/u1/sist_reactivos.png)
 
 ## Interacción de programas concurrentes
 
@@ -84,7 +84,7 @@ Clasificación en 3 estados
 - Ready: esperando por la CPU
 - Terminated: proceso terminado
 
-![Estados de un Proceso](/imagenes/estados_proceso.png)
+![Estados de un Proceso](../imagenes/u1/estados_proceso.png)
 
 ## Estados
 
@@ -121,7 +121,7 @@ Los procesos son independientes, llevan bastante información de estados, e inte
 • Espacio de almacenamiento estático donde almacenara las variables
 • Acceso a los recursos de la tarea que son compartidos por todos los hilos de la tarea
 
-![Estados de un Hilo](/imagenes/estados_hilo.png)
+![Estados de un Hilo](../imagenes/u1/estados_hilo.png)
 
 ## Concurrencia
 
@@ -165,4 +165,6 @@ Cuando se ejecuta una primitiva RECEIVE existen 2 opciones: si previamente se ha
 - Concurrente: un sistema concurrente es aquel en el que un conjunto de cómputos avanza colaborativamente para lo cual está garantizada y coordinada la secuencia de las interacciones o comunicaciones entre diferentes cómputos como también el acceso a los recursos que se comparten.
 - Paralela: forma de cómputo en la que muchas instrucciones se ejecutan simultáneamente dividiendo el problema en tareas más pequeñas que se resuelven en simultaneo
 
-## ![Progamacion Concurrente vs Paralela](/imagenes/prog_conc_par.png)
+![Progamacion Concurrente vs Paralela](../imagenes/u1/prog_conc_par.png)
+
+---
