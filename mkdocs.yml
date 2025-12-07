@@ -1,7 +1,11 @@
-site_name: Apuntes Concurrencia
+site_name: Apunte Programación Concurrente
+repo_url: https://github.com/usuario/concurrente
+theme:
+  name: material
+
 nav:
   - Inicio: index.md
-  - Temario general: materia-apunte/temario.md
+  - Temario: temario.md
   - Unidades:
       - Unidad 1: unidades/u1-introduccion.md
       - Unidad 2: unidades/u2-sincronizacion.md
@@ -10,4 +14,4 @@ nav:
       - Unidad 5: unidades/u5-propiedades_redes_petri.md
       - Unidad 6: unidades/u6-monitor-concurrencia.md
       - Unidad 7: unidades/u7-regex.md
-      - Apuntes prácticos: unidades/u8-Apuntes-practicos.md
+      - Unidad 8: unidades/u8-Apuntes-practicos.md

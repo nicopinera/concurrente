@@ -1,2 +1,5 @@
+install:
+	pip install mkdocs mkdocs-material
+
 compilar_pagina:
-	mkdocs build
+	mkdocs gh-deploy
