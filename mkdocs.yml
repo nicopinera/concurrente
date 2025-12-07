@@ -1,9 +1,13 @@
-site_name: Apunte Prog Concurrente
-theme:
-  name: material
+site_name: Apuntes Concurrencia
 nav:
   - Inicio: index.md
-  - Temario: temario.md
+  - Temario general: materia-apunte/temario.md
   - Unidades:
-      - Introducción: unidades/u1-introduccion.md
-      - Sincronizacion: unidades/u2-sincronizacion.md
+      - Unidad 1: unidades/u1-introduccion.md
+      - Unidad 2: unidades/u2-sincronizacion.md
+      - Unidad 3: unidades/u3-gramatica.md
+      - Unidad 4: unidades/u4-bases_redes_petri.md
+      - Unidad 5: unidades/u5-propiedades_redes_petri.md
+      - Unidad 6: unidades/u6-monitor-concurrencia.md
+      - Unidad 7: unidades/u7-regex.md
+      - Apuntes prácticos: unidades/u8-Apuntes-practicos.md

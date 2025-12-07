@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        
+        
+        <link rel="shortcut icon" href="../../img/favicon.ico">
+        <title>Unidad 1 - Apuntes Concurrencia</title>
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <link href="../../css/fontawesome.min.css" rel="stylesheet">
+        <link href="../../css/brands.min.css" rel="stylesheet">
+        <link href="../../css/solid.min.css" rel="stylesheet">
+        <link href="../../css/v4-font-face.min.css" rel="stylesheet">
+        <link href="../../css/base.css" rel="stylesheet">
+        <link id="hljs-light" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" >
+        <link id="hljs-dark" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github-dark.min.css" disabled>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+        <script>hljs.highlightAll();</script> 
+    </head>
+
+    <body>
+        <div class="navbar fixed-top navbar-expand-lg navbar-dark bg-primary">
+            <div class="container">
+                <a class="navbar-brand" href="../..">Apuntes Concurrencia</a>
+                <!-- Expander button -->
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Expanded navigation -->
+                <div id="navbar-collapse" class="navbar-collapse collapse">
+                        <!-- Main navigation -->
+                        <ul class="nav navbar-nav">
+                            <li class="nav-item">
+                                <a href="../.." class="nav-link">Inicio</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="../../materia-apunte/temario/" class="nav-link">Temario general</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a href="#" class="nav-link dropdown-toggle active" aria-current="page" role="button" data-bs-toggle="dropdown"  aria-expanded="false">Unidades</a>
+                                <ul class="dropdown-menu">
+                                    
+<li>
+    <a href="./" class="dropdown-item active" aria-current="page">Unidad 1</a>
+</li>
+                                    
+<li>
+    <a href="../u2-sincronizacion/" class="dropdown-item">Unidad 2</a>
+</li>
+                                    
+<li>
+    <a href="../u3-gramatica/" class="dropdown-item">Unidad 3</a>
+</li>
+                                    
+<li>
+    <a href="../u4-bases_redes_petri/" class="dropdown-item">Unidad 4</a>
+</li>
+                                    
+<li>
+    <a href="../u5-propiedades_redes_petri/" class="dropdown-item">Unidad 5</a>
+</li>
+                                    
+<li>
+    <a href="../u6-monitor-concurrencia/" class="dropdown-item">Unidad 6</a>
+</li>
+                                    
+<li>
+    <a href="../u7-regex/" class="dropdown-item">Unidad 7</a>
+</li>
+                                    
+<li>
+    <a href="../u8-Apuntes-practicos/" class="dropdown-item">Apuntes prácticos</a>
+</li>
+                                </ul>
+                            </li>
+                        </ul>
+
+                    <ul class="nav navbar-nav ms-md-auto">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link" data-bs-toggle="modal" data-bs-target="#mkdocs_search_modal">
+                                <i class="fa fa-search"></i> Search
+                            </a>
+                        </li>
+                            <li class="nav-item">
+                                <a rel="prev" href="../../materia-apunte/temario/" class="nav-link">
+                                    <i class="fa fa-arrow-left"></i> Previous
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a rel="next" href="../u2-sincronizacion/" class="nav-link">
+                                    Next <i class="fa fa-arrow-right"></i>
+                                </a>
+                            </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="row">
+                    <div class="col-md-3"><div class="navbar-expand-md bs-sidebar hidden-print affix" role="complementary">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggler collapsed" data-bs-toggle="collapse" data-bs-target="#toc-collapse" title="Table of Contents">
+            <span class="fa fa-angle-down"></span>
+        </button>
+    </div>
+
+    
+    <div id="toc-collapse" class="navbar-collapse collapse card bg-body-tertiary">
+        <ul class="nav flex-column">
+            
+            <li class="nav-item" data-bs-level="1"><a href="#introduccion-a-la-programacion-concurrente" class="nav-link">Introduccion a la Programacion Concurrente</a>
+              <ul class="nav flex-column">
+            <li class="nav-item" data-bs-level="2"><a href="#el-problema-de-la-correccion-del-software" class="nav-link">El problema de la correccion del software</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#limitaciones-del-testing-y-la-simulacion" class="nav-link">Limitaciones del testing y la simulacion</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#verificacion-semi-automatica-de-software" class="nav-link">Verificación (semi) automática de software</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#el-enfoque-de-modelar" class="nav-link">El enfoque de modelar</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#caracteristicas-reactivas-de-los-sistemas-concurrentes" class="nav-link">Características reactivas de los sistemas concurrentes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#interaccion-de-programas-concurrentes" class="nav-link">Interacción de programas concurrentes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#problemas-comunes-de-los-programas-concurrentes" class="nav-link">Problemas comunes de los programas concurrentes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#semantica-de-los-programas-concurrentes" class="nav-link">Semántica de los programas concurrentes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#como-se-ejecutan-los-procesos-concurrentes" class="nav-link">Como se ejecutan los procesos concurrentes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#razonamiento-sobre-los-programas-concurrentes" class="nav-link">Razonamiento sobre los programas concurrentes</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#modelos-de-programacion-concurrente" class="nav-link">Modelos de programación concurrente</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#proceso" class="nav-link">Proceso</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#estados-de-un-proceso" class="nav-link">Estados de un proceso</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#estados" class="nav-link">Estados</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#hilos" class="nav-link">Hilos</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#diferencias-entre-hilos-y-procesos" class="nav-link">Diferencias entre hilos y procesos</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#ventajas-de-los-hilos" class="nav-link">Ventajas de los hilos</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#que-tiene-un-hilo" class="nav-link">Que tiene un hilo</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#concurrencia" class="nav-link">Concurrencia</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#principios-generales-de-la-concurrencia" class="nav-link">Principios Generales de la concurrencia</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#requisitos-para-la-exclusion-mutua" class="nav-link">Requisitos para la exclusión mutua</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#sincronizacion" class="nav-link">Sincronización</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#programacion" class="nav-link">Programación</a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+            <li class="nav-item" data-bs-level="2"><a href="#_1" class="nav-link"></a>
+              <ul class="nav flex-column">
+              </ul>
+            </li>
+              </ul>
+            </li>
+        </ul>
+    </div>
+</div></div>
+                    <div class="col-md-9" role="main">
+
+<h1 id="introduccion-a-la-programacion-concurrente">Introduccion a la Programacion Concurrente</h1>
+<h2 id="el-problema-de-la-correccion-del-software">El problema de la correccion del software</h2>
+<p>Poder garantizar la corrección del software que construimos es una tarea deseable. En algunas aplicaciones es sin dudas crucial (software para equipamiento médico, vehículos, control de procesos etc.). Estos sistemas cuyas fallas pueden ocasionar daños de gran importancia incluyendo pérdida de vidas humanas, catástrofes ecológicas, grandes pérdidas financieras se denominan <strong>Sistemas Críticos</strong>.</p>
+<h2 id="limitaciones-del-testing-y-la-simulacion">Limitaciones del testing y la simulacion</h2>
+<p>Tanto el testing como la simulación involucran experimentos previos al lanzamiento o uso masivo del software. En general ambos métodos proveen una serie de entradas al software y estudian el comportamiento del mismo en esos caos. El testing y la simulación raramente permiten generalizar la usencia de errores, con lo que se pretende afirmar que “El testing puede confirmar la presencia de errores, pero nunca garantizar su ausencia”. Con lo que se pretende afirmar que la verificación sólo puede hacerlo en teoría.</p>
+<h2 id="verificacion-semi-automatica-de-software">Verificación (semi) automática de software</h2>
+<p>Existen serias limitaciones en lo que respecta a la verificación automática de software. Sin embargo, si imponemos algunas restricciones sobre las propiedades que queremos verificar, algunas tareas podrán verificarse automáticamente sobre el sistema.</p>
+<h2 id="el-enfoque-de-modelar">El enfoque de modelar</h2>
+<p>Nuestros modelos representan comportamientos verdaderos de programas escritos en java. Los modelos abstractos de programas se centran en los detalles reales relacionados con la representación de datos, asignación de recursos y la interacción con el usuario. Introduciremos mecanismos para verificar que el modelo satisface condiciones particulares de seguridad y las propiedades de progreso que son requeridas por las aplicaciones.</p>
+<p>Estos mecanismos de verificación son posibles gracias a una herramienta de modelado, con la que comprobaremos exhaustivamente el modelo utilizado, lo que permite comprobar propiedades deseables como indeseables para todas las posibles secuencias de eventos y acciones. Los modelos se basan en máquinas de estados finitos y Redes de Petri.</p>
+<p>Las máquinas de estados finitos Se utilizan para especificar el comportamiento dinámico de los objetos en métodos bien conocidos de diseño orientado a objetos. tienen una semántica intuitiva, fáciles de entender y una representación gráfica sencilla y tienen propiedades matemáticas bien definidas, que facilitan el análisis formal y la comprobación mecánica de sistemas, evitando el tedio y la introducción de errores inherentes al trabajo manual e intelectual de los métodos formales. Hay que notar que la representación gráfica de las máquinas de estado, limita seriamente la complejidad de los problemas que se pueden abordar. Por lo que se utiliza Redes de Petri.</p>
+<h2 id="caracteristicas-reactivas-de-los-sistemas-concurrentes">Características reactivas de los sistemas concurrentes</h2>
+<p>Muchos programas concurrentes sueles ser reactivos, es decir su funcionamiento involucra la interacción permanente con el ambiente y otros procesos. Los sistemas reactivos tienen características diferentes a las de los programas transformacionales. En muchos casos estos no computan resultados y suelen no requerir que terminen.</p>
+<p><img alt="Sistemas Reactivos" src="/imagenes/sist_reactivos.png" /></p>
+<h2 id="interaccion-de-programas-concurrentes">Interacción de programas concurrentes</h2>
+<p>Los programas concurrentes están compuestos por procesos (threads o componentes) que necesitan interactuar, existen diferentes formas de interactuar como la memoria compartida o el intercambio de mensajes. Además, los programas concurrentes deben, en general, colaborar para llegar a un objetivo común para lo cual la sincronización entre procesos es crucial.</p>
+<h2 id="problemas-comunes-de-los-programas-concurrentes">Problemas comunes de los programas concurrentes</h2>
+<ul>
+<li>Violación de propiedades universales (<strong>invariantes</strong>)</li>
+<li><strong>Starvation(inanición)</strong>: uno o más procesos quedan esperando indefinidamente un mensaje o la liberación de un recurso</li>
+<li><strong>Deadlock</strong>: dos o más procesos esperan mutuamente el avance del otro</li>
+<li>Problemas de uso no exclusivo de recursos compartidos</li>
+<li><strong>Livelock</strong>: dos o más procesos no pueden avanzar en su ejecución porque continuamente responden a los cambios en el estado de otros procesos</li>
+</ul>
+<h2 id="semantica-de-los-programas-concurrentes">Semántica de los programas concurrentes</h2>
+<p>Una semántica típica para los programas concurrentes está basada en sistemas de transición de estados. Un sistema de transición de estados es un grafo en el cual:</p>
+<ul>
+<li>Los nodos son los estados del sistema</li>
+<li>Las aristas son las transiciones atómicas de estado en estado, dadas por las sentencias del sistema (líneas que unen estados)</li>
+<li>Hay un nodo distinguido que reconoceremos como el estado inicial.</li>
+</ul>
+<h2 id="como-se-ejecutan-los-procesos-concurrentes">Como se ejecutan los procesos concurrentes</h2>
+<p>De acuerdo al modelo computacional descripto: los procesos concurrentes se ejecutan intercalando las acciones atómicas que los componen, llamamos a esto interliving. El orden en que se ejecutan las acciones atómicas no puede decirse en general y un mismo par de procesos pueden tener diferentes ejecuciones debido al no determinismo en la elección de las acciones atómicas a ejecutar.</p>
+<h2 id="razonamiento-sobre-los-programas-concurrentes">Razonamiento sobre los programas concurrentes</h2>
+<p>Es difícil razonar sobre los programas concurrentes y garantizar que un programa concurrente es correcto también es difícil. Tiene que ver con que diferentes interlivings de acciones atómicas pueden llevar a diferentes resultados o comportamientos de los sistemas concurrentes. El número de interlivings posibles es en general muy grande lo que hace que el testing difícilmente pueda brindarnos confianza.</p>
+<h2 id="modelos-de-programacion-concurrente">Modelos de programación concurrente</h2>
+<p>Tenemos que hacer abstracción: acto mental en el que se puede aislar conceptualmente una propiedad o función concreta de un objeto y se piensa que es, ignorando otras propiedades del mismo. Manera de ocultar los detalles de implementación de ciertas funcionalidades. Una forma de aliviar el problema de razonar sobre programas concurrentes es considerar representaciones abstractas de estos. Estas representaciones llamadas modelos nos permiten centrarnos en las características particulares que queremos analizar.
+Las algebras de procesos nos permiten construir estos modelos concentrándose en las propiedades funcionales del sistema concurrente. Para esto es importante considerar los eventos en los cuales cada proceso puede estar involucrado y los patrones de concurrencia</p>
+<h2 id="proceso">Proceso</h2>
+<p>Formalmente un proceso es: unidad de actividad que se caracteriza por la ejecución de una secuencia de instrucciones, un estado actual y un conjunto de recursos del sistema asociado. El que administra los procesos, sus estados y los recursos es el sistema operativo, proporciona los servicios necesarios para que el usuario pueda ejecutar procesos. Al comienzo de las ejecuciones del programa se inicia la ejecución de un proceso, este proceso podría crear nuevos procesos (proceso padre, proceso hijo). Una vez creado un proceso hijo, la ejecución de padre e hijo transcurren de manera concurrente
+Un proceso es un programa en ejecución. Un proceso simple tiene un hilo de ejecución. Diferencia entre programa y procesos: un proceso es una actividad que contiene programa, entras y salidas y estados. Procesos cooperantes: se entiende que los procesos interactúan entre sí. Procesos independientes: no requieren información de otros</p>
+<h2 id="estados-de-un-proceso">Estados de un proceso</h2>
+<p>Clasificación en 3 estados</p>
+<ul>
+<li>Listo: son los que pueden pasar a estado de ejecución</li>
+<li>En ejecución: son los que se están ejecutando en el procesador</li>
+<li>Bloqueado: están esperando la respuesta de algún otro proceso para poder continuar con su ejecución
+  Clasificación en 5 estados</li>
+<li>Activo: está ejecutándose</li>
+<li>Preparado: todas las tareas están listas para ejecutarse, pero se espera a que un/el procesador quede libre (hay otros procesos más prioritarios en ejecución)</li>
+<li>Bloqueado o suspendido: que se termine una operación de E/S o que se reciba una señal de sincronización</li>
+<li>Nonato: indica que el programa realmente existe, pero todavía no es conocido por el OS</li>
+<li>Muerto: cuando ha terminado su ejecución o el sistema operativo ha detectado un error fatal
+  El sistema operativo gestiona los recursos disponibles (memoria, CPU, etc.). Estados en los que se encuentra un proceso en este tipo de sistemas</li>
+<li>New: el proceso se crea</li>
+<li>Running: se está ejecutando</li>
+<li>Waiting: está esperando que se cumpla otro evento</li>
+<li>Ready: esperando por la CPU</li>
+<li>Terminated: proceso terminado</li>
+</ul>
+<p><img alt="Estados de un Proceso" src="/imagenes/estados_proceso.png" /></p>
+<h2 id="estados">Estados</h2>
+<p>Son aquellos que compiten con el procesador o están en condiciones de hacerlo. Se dividen en</p>
+<ul>
+<li>Activos</li>
+<li>Ejecución: Estado en el que se encuentra un proceso cuando tiene el control del procesador. En un sistema monoprocesador este estado sólo lo puede tener un proceso.</li>
+<li>Preparado: Aquellos procesos que están dispuestos para ser ejecutados, pero no están en ejecución por alguna causa (Interrupción, haber entrado en cola estando otro proceso en ejecución, etc.).</li>
+<li>Bloqueado: Son los procesos que no pueden ejecutarse de momento por necesitar algún recurso no disponible (generalmente recursos de entrada/salida).</li>
+<li>Inactivos:</li>
+<li>Suspendido bloqueado: Es el proceso que fue suspendido en espera de un evento, sin que hayan desaparecido las causas de su bloqueo</li>
+<li>Suspendido programado: Es el proceso que han sido suspendido, pero no tiene causa parta estar bloqueado.</li>
+</ul>
+<h2 id="hilos">Hilos</h2>
+<p>Permiten a una aplicación realizar varias tareas a la vez. Los distintos hilos de ejecución comparten recursos: el espacio de memoria, los archivos abiertos, etc. Esta técnica simplificada permite llevar a cabo distintas funciones simultáneamente. Los hilos de ejecución que comparten los mismos recursos y estados recursos, son en conjunto conocidos como un proceso. Si un mismo proceso compartan los recursos hace que cualquiera de sus hilos pueda modificarlos. Cuando un hilo modifica un dato en la memoria, los otros hilos acceden a ese dato modificado inmediatamente. Lo que es propio de cada hilo es el contador de programa, la pila de ejecución y el estado de la CPU (incluyendo el valor de los registros). El proceso sigue en ejecución mientras al menos uno de sus hilos de ejecución siga activo.</p>
+<h2 id="diferencias-entre-hilos-y-procesos">Diferencias entre hilos y procesos</h2>
+<p>Los procesos son independientes, llevan bastante información de estados, e interactúan sólo a través de mecanismos de comunicación dados por el sistema. Los hilos generalmente comparten otros recursos de forma directa. Es más simple y rápido cambiar de un hilo a otro dentro del mismo proceso, que cambiar de un proceso a otro. Este fenómeno se debe a que los hilos comparten datos y espacios de direcciones, mientras que los procesos, al ser independientes, no lo hacen.</p>
+<h2 id="ventajas-de-los-hilos">Ventajas de los hilos</h2>
+<ol>
+<li>Se tarda menos tiempo en crear un hilo nuevo en un proceso existente que crear un nuevo proceso</li>
+<li>Se tarda menos en terminar un hilo que un proceso</li>
+<li>Se tarda menos en cambiar entre dos hilos de un mismo proceso.
+   Los hilos aumentan la eficiencia de la comunicación entre programas en ejecución. La comunicación entre procesos debe intervenir el núcleo para ofrecer protección de los recursos y realizar la comunicación misma. La comunicación entre hilos no requiere la invocación al núcleo. Por lo tanto, si hay una aplicación que debe implementarse como un conjunto de unidades de ejecución relacionadas, es más eficiente hacerlo con una colección de hilos que con una colección de procesos separados. Cuando un hilo está en ejecución, posee el acceso a todos los recursos que tiene asignados la tarea.</li>
+</ol>
+<h2 id="que-tiene-un-hilo">Que tiene un hilo</h2>
+<p>• Estado
+• Contexto del procesador: punto en el que estamos ejecutando. Se usa para reanudar un hilo que fue interrumpido
+• Pila de ejecución donde ira metiendo y sacando instrucciones
+• Espacio de almacenamiento estático donde almacenara las variables
+• Acceso a los recursos de la tarea que son compartidos por todos los hilos de la tarea</p>
+<p><img alt="Estados de un Hilo" src="/imagenes/estados_hilo.png" /></p>
+<h2 id="concurrencia">Concurrencia</h2>
+<p>Exclusión Mutua y sincronización: Estos conceptos se van a dar en distintas plataformas:</p>
+<ul>
+<li>Multiprogramación: consiste en la gestión de varios procesos dentro de un sistema monoprocesador</li>
+<li>Multiprocesamiento: consiste en la gestión de varios procesos dentro de un sistema mono procesador</li>
+<li>Multiprocesamiento: consiste en la gestión de varios procesos dentro de un sistema multiprocesador</li>
+<li>Procesamiento distribuido: consiste en la gestión de varios procesos ejecutándose en sistemas de computadoras múltiples y distribuidos.
+  La concurrencia es fundamental en todas estas áreas y para el diseño. Comprende un gran número de cuestiones de diseño como: comunicación entre proceso, compartición y competencia por los recursos, sincronización de la ejecución de varios procesos, asignación de tiempo. La concurrencia puede presentare en tres contextos diferentes: Multiplicaciones, aplicaciones estructuradas, estructura del sistema operativo.</li>
+</ul>
+<h2 id="principios-generales-de-la-concurrencia">Principios Generales de la concurrencia</h2>
+<p>Multiprogramado con un único procesador, los procesos se intercalan en el tiempo aparentando una ejecución simultánea. Los problemas son consecuencia de la velocidad de ejecución de los procesos que no pueden predecirse y depende de las actividades de otros procesos de la forma en que el sistema operativo trata las interrupciones surgen dificultades
+Compartir recursos globales es riesgoso, esto ocasiona problemas por esto necesitamos proteger a dichos recursos. Los procesos interactúan entre ellos según el nivel de conocimiento que cada proceso tiene de la existencia de los demás. Existen 3 niveles de conocimiento</p>
+<ol>
+<li>Los procesos no tienen conocimiento de los demás</li>
+<li>Los procesos tienen conocimiento indirecto de los demás: No conocen a los otros por sus identificadores per muestran cooperación</li>
+<li>
+<p>Los procesos se conocen directamente: se comunican por el identificador y por trabajar en conjunto
+   Los procesos concurrentes entran en conflicto cuando compiten por el uso del mismo recurso. La ejecución de un proceso puede influir en el comportamiento de los procesos que compiten. Cuando hay procesos en competencia, se debe solucionar 3 problemas de control:</p>
+</li>
+<li>
+<p>La necesidad de exclusión mutua</p>
+</li>
+<li>Hacer que se cumpla la exclusión mutua genera un interbloqueo</li>
+<li>La inanición</li>
+</ol>
+<h2 id="requisitos-para-la-exclusion-mutua">Requisitos para la exclusión mutua</h2>
+<p>Solo un proceso de todos los que poseen secciones criticas (partes del código que varios procesos quieren ejecutar a la vez) por el mismo recurso compartido debe tener permiso para entrar en ella en un momento dado. Un proceso que se interrumpe en una sección no critica debe hacerlo sin interferir a los demás. Deben poder solicitar acceso a una sección critica para luego ser demorado indefinidamente. Si ningún proceso está en su sección critica, cualquier otro proceso que solicite acceso a su sección critica debe hacerlo sin demoras. Un proceso permanece en su sección critica por tiempo finito</p>
+<h2 id="sincronizacion">Sincronización</h2>
+<p>La comunicación entre procesos implica sincronización. El receptor no puede recibir un mensaje hasta que sea enviado por otro proceso. Además, hace falta especificar que le sucede a un proceso después de ejecutar una primitiva SEND o RECEIVE. Cuando se ejecuta una primitiva SEND en un proceso hay 2 posibilidades: el proceso emisor se bloque hasta que recibe el mensaje o no se bloquea
+Cuando se ejecuta una primitiva RECEIVE existen 2 opciones: si previamente se ha enviado algún mensaje este es recibido y continua la ejecución. Si no hay mensaje esperando entonces el proceso se bloquea esperando o continúa abandonando el intento de recepción. El emisor y el receptor pueden ser bloqueantes o no bloqueantes. Existen 3 tipos de combinaciones (solo se implementan 1 o 2)</p>
+<ol>
+<li>Envió y recepciones bloqueantes: ambos se bloquean hasta que llegue el mensaje (rendezvous)</li>
+<li>Envió no bloqueante, recepción bloqueante: el emisor continuo, el receptor se bloquea hasta que legue el mensaje. Es la opción más utilizada y natural</li>
+<li>Envió y recepción no bloqueante: nadie se espera.</li>
+</ol>
+<h2 id="programacion">Programación</h2>
+<ul>
+<li>Concurrente: un sistema concurrente es aquel en el que un conjunto de cómputos avanza colaborativamente para lo cual está garantizada y coordinada la secuencia de las interacciones o comunicaciones entre diferentes cómputos como también el acceso a los recursos que se comparten.</li>
+<li>Paralela: forma de cómputo en la que muchas instrucciones se ejecutan simultáneamente dividiendo el problema en tareas más pequeñas que se resuelven en simultaneo</li>
+</ul>
+<h2 id="_1"><img alt="Progamacion Concurrente vs Paralela" src="/imagenes/prog_conc_par.png" /></h2></div>
+            </div>
+        </div>
+
+        <footer class="col-md-12">
+            <hr>
+            <p>Documentation built with <a href="https://www.mkdocs.org/">MkDocs</a>.</p>
+        </footer>
+        <script src="../../js/bootstrap.bundle.min.js"></script>
+        <script>
+            var base_url = "../..",
+                shortcuts = {"help": 191, "next": 78, "previous": 80, "search": 83};
+        </script>
+        <script src="../../js/base.js"></script>
+        <script src="../../search/main.js"></script>
+
+        <div class="modal" id="mkdocs_search_modal" tabindex="-1" role="dialog" aria-labelledby="searchModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="searchModalLabel">Search</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>From here you can search these documents. Enter your search terms below.</p>
+                <form>
+                    <div class="form-group">
+                        <input type="search" class="form-control" placeholder="Search..." id="mkdocs-search-query" title="Type search term here">
+                    </div>
+                </form>
+                <div id="mkdocs-search-results" data-no-results-text="No results found"></div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div><div class="modal" id="mkdocs_keyboard_modal" tabindex="-1" role="dialog" aria-labelledby="keyboardModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="keyboardModalLabel">Keyboard Shortcuts</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th style="width: 20%;">Keys</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td class="help shortcut"><kbd>?</kbd></td>
+                    <td>Open this help</td>
+                  </tr>
+                  <tr>
+                    <td class="next shortcut"><kbd>n</kbd></td>
+                    <td>Next page</td>
+                  </tr>
+                  <tr>
+                    <td class="prev shortcut"><kbd>p</kbd></td>
+                    <td>Previous page</td>
+                  </tr>
+                  <tr>
+                    <td class="search shortcut"><kbd>s</kbd></td>
+                    <td>Search</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+
+    </body>
+</html>
