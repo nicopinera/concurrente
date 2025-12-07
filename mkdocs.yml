@@ -1,0 +1,9 @@
+site_name: Apunte Prog Concurrente
+theme:
+  name: material
+nav:
+  - Inicio: index.md
+  - Temario: temario.md
+  - Unidades:
+      - Introducción: unidades/u1-introduccion.md
+      - Sincronizacion: unidades/u2-sincronizacion.md
