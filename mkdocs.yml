@@ -16,6 +16,8 @@ nav:
       - Unidad 6: unidades/u6-monitor-concurrencia.md
       - Unidad 7: unidades/u7-regex.md
       - Unidad 8: unidades/u8-Apuntes-practicos.md
+      - Unidad 9: unidades/u9-intro-java.md
+  - Preguntas Coloquio: materia-apunte/preguntas_coloqui.md
 
 markdown_extensions:
   - codehilite
