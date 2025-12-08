@@ -1144,12 +1144,7 @@
 <p>Las máquinas de estados finitos Se utilizan para especificar el comportamiento dinámico de los objetos en métodos bien conocidos de diseño orientado a objetos. tienen una semántica intuitiva, fáciles de entender y una representación gráfica sencilla y tienen propiedades matemáticas bien definidas, que facilitan el análisis formal y la comprobación mecánica de sistemas, evitando el tedio y la introducción de errores inherentes al trabajo manual e intelectual de los métodos formales. Hay que notar que la representación gráfica de las máquinas de estado, limita seriamente la complejidad de los problemas que se pueden abordar. Por lo que se utiliza Redes de Petri.</p>
 <h2 id="caracteristicas-reactivas-de-los-sistemas-concurrentes">Características reactivas de los sistemas concurrentes</h2>
 <p>Muchos programas concurrentes sueles ser <strong>reactivos</strong>, es decir su funcionamiento involucra la interacción permanente con el ambiente y otros procesos. Los <strong>sistemas reactivos</strong> tienen características diferentes a las de los <strong>programas transformacionales</strong>. En muchos casos estos no computan resultados y suelen no requerir que terminen.</p>
-<div align="center">
-
-![Sistemas Reactivos](../imagenes/u1/sist_reactivos.png)
-
-</div>
-
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../imagenes/u1/sist_reactivos.png" data-desc-position="bottom"><img alt="Sistemas Reactivos" src="../../imagenes/u1/sist_reactivos.png"></a></p>
 <h2 id="interaccion-de-programas-concurrentes">Interacción de programas concurrentes</h2>
 <p>Los programas concurrentes están compuestos por <strong>procesos</strong> (threads o componentes) que necesitan interactuar, existen diferentes formas de interactuar como la memoria compartida o el intercambio de mensajes. Además, los programas concurrentes deben, en general, colaborar para llegar a un objetivo común para lo cual la sincronización entre procesos es crucial.</p>
 <h2 id="problemas-comunes-de-los-programas-concurrentes">Problemas comunes de los programas concurrentes</h2>
@@ -1160,9 +1155,10 @@
 <li>Problemas de uso no exclusivo de recursos compartidos</li>
 <li><strong>Livelock</strong>: dos o más procesos no pueden avanzar en su ejecución porque continuamente responden a los cambios en el estado de otros procesos</li>
 </ul>
-<blockquote>
-<p>[!NOTE] &gt; <strong>ATOMICO:</strong> Que algo sea atomico significa que no puede ser interrupido hasta que se completa su ejecucion</p>
-</blockquote>
+<div class="admonition note">
+<p class="admonition-title">ATOMICO</p>
+<p>Que algo sea atomico significa que no puede ser interrupido hasta que se completa su ejecucion</p>
+</div>
 <h2 id="semantica-de-los-programas-concurrentes">Semántica de los programas concurrentes</h2>
 <p>Una semántica típica para los programas concurrentes está basada en <strong>sistemas de transición de estados</strong>. Mi programa tiene <strong>estados</strong>, algo que demora un tiempo en estar en esa condición, y va a tener <strong>eventos</strong> que ocurren en el momento que me cambian el estado actual. Un sistema de transición de estados, <em>nos permite ver los estados posibles y que eventos me hacen cambiar de estado</em>, es un grafo dirigido en el cual:</p>
 <ul>
@@ -1170,16 +1166,11 @@
 <li>Las aristas son las transiciones atómicas de estado en estado, dadas por las sentencias del sistema (líneas que unen estados)</li>
 <li>Hay un nodo distinguido que reconoceremos como el estado inicial.</li>
 </ul>
-<div align="center">
-
-![Sistema de transicion de Estados](../imagenes/u1/transicion_estados.png)
-
+<p><a class="glightbox" data-type="image" data-width="auto" data-height="auto" href="../../imagenes/u1/transicion_estados.png" data-desc-position="bottom"><img alt="Sistema de transicion de Estados" src="../../imagenes/u1/transicion_estados.png"></a></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Un sistema es determinístico, cuando estando en un estado, frente al mismo evento, va al mismo lugar siempre</p>
 </div>
-
-<blockquote>
-<p>[!NOTE]
-Un sistema es determinístico, cuando estando en un estado, frente al mismo evento, va al mismo lugar siempre</p>
-</blockquote>
 <h2 id="como-se-ejecutan-los-procesos-concurrentes">Como se ejecutan los procesos concurrentes</h2>
 <p>De acuerdo al modelo computacional descripto: los procesos concurrentes se ejecutan intercalando las acciones atómicas que los componen, llamamos a esto interliving. El orden en que se ejecutan las acciones atómicas no puede decirse en general y un mismo par de procesos pueden tener diferentes ejecuciones debido al no determinismo en la elección de las acciones atómicas a ejecutar.</p>
 <h2 id="razonamiento-sobre-los-programas-concurrentes">Razonamiento sobre los programas concurrentes</h2>
