@@ -4,7 +4,7 @@ Bienvenido/a al apunte de la materia. Este material culbre desde los conceptos b
 
 ## Como esta organizado
 
-- [Temario general](/materia-apunte/temario.md)
+- [Temario general](materia-apunte/temario.md)
 - Desarrollo de cada unidad
 - Ejeplos de Codigo
 - Preguntas Tipicas

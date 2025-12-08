@@ -2,6 +2,7 @@ site_name: Apunte Programación Concurrente
 repo_url: https://github.com/usuario/concurrente
 theme:
   name: material
+  custom_dir: docs/overrides
 
 nav:
   - Inicio: index.md
@@ -15,3 +16,13 @@ nav:
       - Unidad 6: unidades/u6-monitor-concurrencia.md
       - Unidad 7: unidades/u7-regex.md
       - Unidad 8: unidades/u8-Apuntes-practicos.md
+
+markdown_extensions:
+  - codehilite
+  - admonition
+  - pymdownx.tabbed
+
+plugins:
+  - awesome-pages
+  - glightbox
+  - minify

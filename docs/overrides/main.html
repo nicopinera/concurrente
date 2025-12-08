@@ -1,0 +1,22 @@
+{% extends "base.html" %} {% block extrahead %} {{ super() }}
+
+<!-- Google site verification (reemplaza TOKEN_AQUI si te lo dieron) -->
+
+<!-- Google Analytics -->
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=G-S6ECQ3P6X4"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "G-S6ECQ3P6X4");
+</script>
+
+<!-- Favicon -->
+<link rel="icon" type="image/x-icon" href="{{ base_url }}favicon.ico" />
+{% endblock %}
