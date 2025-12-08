@@ -1,23 +1,25 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <!-- Google tag (gtag.js) -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-S6ECQ3P6X4"
-    ></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+{% extends "base.html" %}
 
-      gtag("config", "G-S6ECQ3P6X4");
-    </script>
-    {{ meta }} {{ styles }}
-  </head>
-  <body>
-    {{ content }} {{ scripts }}
-  </body>
-</html>
+{% block extrahead %}
+  {{ super() }}
+
+  <!-- Google site verification (reemplaza TOKEN_AQUI si te lo dieron) -->
+  <!-- <meta name="google-site-verification" content="TOKEN_AQUI" /> -->
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-S6ECQ3P6X4"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-S6ECQ3P6X4');
+  </script>
+
+  <!-- Google AdSense (mantén tu ca-pub...) -->
+  <script async
+    src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1069565333112880"
+    crossorigin="anonymous"></script>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="{{ base_url }}favicon.ico">
+{% endblock %}
