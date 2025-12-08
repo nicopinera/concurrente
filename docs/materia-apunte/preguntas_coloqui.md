@@ -24,6 +24,12 @@ El testing raramente permiten generalizar la ausencia de errores, garantiza la p
 
 ### Que cosas pueden suceder con un hilo (concepto de starvation, deadlock, exclusión mutua, condición de carrera, livelock)
 
+- La **exclusión mutua** es una propiedad para el control de la concurrencia para prevenir las condiciones de carrera. Es requisito de que un hilo de ejecución nunca entre en su sección critica al mismo tiempo que otro hilo está ejecutando.
+- **Condiciones de carrera**: Cuando el resultado de la ejecución de varios hilos concurrentes puede ser correcto o incorrecto dependiendo como se entrelacen los hilos. El problema aparece cuando varios hilos hacen ciclos de modificación de una variable compartida (lectura + modificación + escritura)
+- **Deadlock o punto muerto**: Es un estado en el que cada miembro de un grupo de procesos/hilos está esperando otro miembro, incluido el mismo, tome medidas (enviar un mensaje o liberar el bloqueo)
+- **Livelock**: se produce cuando dos o más procesos repiten continuamente la misma interacción en respuesta a cambios en los otros procesos sin realizar ningún trabajo útil. Estos procesos no están en estado de espera y se ejecutan simultáneamente.
+- **Inanición o starvation**: es un problema donde un proceso se le niega perpetuamente recursos para procesar su trabajo, puede ser causado por errores en algoritmos, fugas de recursos e intencionalmente a través de un ataque de denegación de servicio.
+
 ### Determinismo e indeterminismo
 
 Un sistema es deterministico cuando estando en un estado frente al mismo evento, va al mismo lugar siempre. Un sistema indeterministico es aleatorio al estado que puede saltar frente al mismo input.
@@ -33,6 +39,8 @@ Un sistema es deterministico cuando estando en un estado frente al mismo evento,
 Un proceso es una unidad de atividad que se caracteriza por la ejeucion de una secuencia de instrucciones, un estado actual y un conjunto de recursos del sistema. Un hilo permite a un proceso ejecutar varias tareas a la vez, los distintos hilos de ejecucion comparten recursos, permitiendo llevar a cabo distintas funciones simultaneamente. Los procesos son independientes, llevan bastante información de estados, e interactúan sólo a través de mecanismos de comunicación dados por el sistema. Los hilos generalmente comparten otros recursos de forma directa. Es más simple y rápido cambiar de un hilo a otro dentro del mismo proceso, que cambiar de un proceso a otro. Este fenómeno se debe a que los hilos comparten datos y espacios de direcciones, mientras que los procesos, al ser independientes, no lo hacen.
 
 ### Que es una sección critica
+
+Los recursos compartidos pueden conducir a un comportamiento inesperado o erróneo, por lo que las partes del programa donde se acceden al recurso compartido deben protegerse de manera que se evite el acceso concurrente. Esta sección protegida es la sección critica o región critica. No puede ser ejecutado por más de un proceso/hilo a la vez.
 
 ### Estados de los hilos (son 7)
 

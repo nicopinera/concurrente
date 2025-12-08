@@ -20,10 +20,13 @@ nav:
   - Preguntas Coloquio: materia-apunte/preguntas_coloqui.md
 
 markdown_extensions:
-  - codehilite
+  - codehilite:
+      guess_lang: false
+      linenums: true
   - admonition
+  - pymdownx.superfences
   - pymdownx.tabbed
-  - admonition
+  - attr_list
 
 plugins:
   - awesome-pages
