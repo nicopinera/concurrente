@@ -1,0 +1,71 @@
+# Preguntas de Coloquio
+
+- Concepto del interleaving y como se ejecutan los procesos concurrentes
+- Que es un sistema critico
+- Qué problema existe con el testing
+- Que cosas pueden suceder con un hilo (concepto de starvation, deadlock, exclusión mutua, condición de carrera, livelock)
+- Determinismo e indeterminismo (este concepto se repite mucho en autómata y redes de Petri)
+- Definición de proceso, hilo (puedes darle un ejemplo para darte a entender), ¿cuál es más fácil de crear y de matar?
+- Que es una sección critica
+- Estados de los hilos (son 7)
+- Que es un sistema reactivo
+- Que es un autómata (tener cuidado aquí hay que saber esta relación con el tp final, y las expresiones regulares)
+- Concepto de símbolo, vocabulario o alfabeto, cadena, cadena vacía, concatenación de cadenas, universo del discurso.
+- Que es el lenguaje y no vacío
+- Que es la gramática
+- Conocer los tipos de gramática y lenguaje (de tipo 0 a 3), Tenes que saber la jerarquía de Chomsky
+- Conocer los tipos de autómata (de Turing, linealmente acotado, de pila y el regular; saber cuál tipo pertenece a cada uno en el orden seria 0,1,2 y 3)
+- Hay que entender la relación que existe en el tp final; lo que sucede es que la expresión regular es un lenguaje de tipo3 generado por una gramática 3 y el autómata de tipo 3. En el tp final implementamos eso Tenes que saber explicar la relación entre gramática, lenguaje y autómata.
+- Siendo que un autómata en un sistema que la entrada son la cadena de símbolos los reconoce y las transforma en otros símbolos (en el tp final cual serian nuestra entrada, es una pregunta que va en el tp final); rpta: las transiciones
+- Autómata de mealy y Moore de que depende la salida, ventajas y desventajas de cada uno
+- Que es el estado accesible de un autómata
+- Que es un autómata conexo ¿la máquina de Turing acepta el definido por el conjunto, siendo a el alfabeto? Rpta: a^2^n
+- Que es una red de Petri y para qué sirven
+- Que es una red de petri autonoma y no autonoma
+- Que es una red de petri ordinaria
+- Que es una maquina de estado
+- Que es un mg de eventos
+- Cuando existe conflicto estructural, y cuando existe el libre de conflicto y la libre eleccion (hay una relacion entre las tres)
+- Que es una red de petri simple
+- Que es una red de petri pura e impura y si puedo volver la pura en impura
+- Que es una red de petri coloreada, para que sirven
+- Que es un arco inhibidor
+- Como se resuelven los indeterminismos; rpta: implementando una politica
+- Saber explicar y dibujar la red de petri lector y escritor con exclusion mutua
+- Dibujar y explicar la red de petri de los filosofos, ¿hay alguna forma de hacerla mas simple?
+- Dibujar y explicar la red de petri productor consumidor
+- Dibujar y explicar la red de petri de la barberia, ¿como se resuelve el bug que tiene esta red?
+- Aclaracion a las tres redes anteriores saber: invariantes de plaza, transicion, si es viva, pseudo viva y quasi viva; entender si es acotada, segura, si hay deadlock, cuando hay conflicto estructural, efectivo y general (antes de que te pregunte si hay conflicto general te preguntara por el concepto de grado de habilitacion)
+- Que es una red de petri acotada
+- Que es una red de petri segura
+- Concepto de red de petri viva, pseudoviva y cuasiviva
+- concepto de homestate y rdp reversible
+- Definicion y cuando ocurre estructural, efectivo y general (podes aprenderte algunas redes que tengan estos conflictos asi podes explicarlas bien)
+- Que es el grado de habilitacion (se relacion con el conflicto general)
+- Que son los invariantes, que es un invariante de plaza (componente conservativo) y de transicion (componente repetitivo)
+- Concepto de persistencia
+- Que es un grafo de marcado
+- Que es un grafo de cobertura (es el del macro marcado)
+- Que es la matriz de incidencia, que representa
+- Cual es la ecuacion fundamental de la redes de petri, explicar cada parte de la misma; ¿cómo sabes que el estado al que llegaste es valido?
+- Cuales son las desventajas de los semaforos
+- Cuales son las primitivas de los semaforos
+- Concepto de ownership del lock y si el semaforo tiene concepto de ownership
+- Cual es la ventaja del monitor y que es un monitor
+- Que contiene el monitor; rpta: variables y procedimientos
+- ¿lo que hace el hilo, lo hace dentro o afuera?
+- Entender como funciona internamente el monitor (cuantos hilos puede haber dentro, por ejemplo, saber porque tiene un metodo de acceso publico)
+- Que son las variables de condicion
+- Saber las 4 politicas (a mi me tomo mayormente la de signal and urgent wait)
+- Hay un tema con los tiempos en el urgent and wait por ejemplo, el tema de los tiempos de los hilos los resuelve el scheduler quien da esos tiempos de procesamiento para que no hay ados hilos dentro del monitor, y el hilo que esta por ejecutarse lo pone en estado ready to run
+- ¿yo hilo que puedo hacer sobre una variable de condicion? Rpta: wait(), signal() y isempty()-----→ el isempty() se lo olvidan mucho en los coloquios, pero muchisimo entender el diagrama de secuencias de la clase monitor hay una parte donde explica la red de petri productor consumidor, que esta implementado con semaforos; tenes que entender esto y ademas una pregunta puntual es: ¿si hay mas de un mutex y hay que tomar varios el orden influye? Rpta: la idea es implementarlo con un monitor
+- Que es una red de petri con tiempo
+- Que es una semantica de tipo fuerte y debil
+- Cuales son los intervalo de tiempo que se puede dar a una transicion
+- Analisis de tiempo (no haras un analisis de tiempo solo tenes que entender que la ejecucion de todos los elementos en su peor caso no equivale al peor caso de ejecucion del sistemas completo)
+- Que es una expresion regular
+- Para que sirven las expresiones regulares
+- Entender la relación entre las expresiones regulares y las invariantes (va para el tp final tambien)
+- ¿Qué es una clase viva?: Toda aquella clase que implemente la interfaz Runnable o extienda de la clase Thread y se vuelva capaz de ser ejecutada por un hilo. Cuando genero un “New Thread” se le pasa por parámetro una instancia de una clase que tenga implementado el método “run ()”.
+- ¿Cuándo termina un programa? Cuando todos los hilos no daemon terminen. Si un hilo daemon se esta ejecutando y se termina el programa, ese hilo también termina.
+- Concepto de lock

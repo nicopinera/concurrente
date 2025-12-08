@@ -6,7 +6,7 @@ Poder garantizar la corrección del software que construimos es una tarea deseab
 
 ## Limitaciones del testing y la simulacion
 
-Tanto el testing como la simulación involucran experimentos previos al lanzamiento o uso masivo del software. En general ambos métodos proveen una serie de entradas al software y estudian el comportamiento del mismo en esos caos. El testing y la simulación raramente permiten generalizar la usencia de errores, con lo que se pretende afirmar que “El testing puede confirmar la presencia de errores, pero nunca garantizar su ausencia”. Con lo que se pretende afirmar que la verificación sólo puede hacerlo en teoría.
+Tanto el testing como la simulación involucran experimentos previos al lanzamiento o uso masivo del software. En general ambos métodos proveen una serie de entradas al software y estudian el comportamiento del mismo en esos caos. El testing y la simulación raramente permiten generalizar la usencia de errores, con lo que se pretende afirmar que **“El testing puede confirmar la presencia de errores, pero nunca garantizar su ausencia”**. Con lo que se pretende afirmar que la verificación sólo puede hacerlo en teoría.
 
 ## Verificación (semi) automática de software
 
@@ -22,13 +22,13 @@ Las máquinas de estados finitos Se utilizan para especificar el comportamiento 
 
 ## Características reactivas de los sistemas concurrentes
 
-Muchos programas concurrentes sueles ser reactivos, es decir su funcionamiento involucra la interacción permanente con el ambiente y otros procesos. Los sistemas reactivos tienen características diferentes a las de los programas transformacionales. En muchos casos estos no computan resultados y suelen no requerir que terminen.
+Muchos programas concurrentes sueles ser **reactivos**, es decir su funcionamiento involucra la interacción permanente con el ambiente y otros procesos. Los **sistemas reactivos** tienen características diferentes a las de los **programas transformacionales**. En muchos casos estos no computan resultados y suelen no requerir que terminen.
 
 ![Sistemas Reactivos](../imagenes/u1/sist_reactivos.png)
 
 ## Interacción de programas concurrentes
 
-Los programas concurrentes están compuestos por procesos (threads o componentes) que necesitan interactuar, existen diferentes formas de interactuar como la memoria compartida o el intercambio de mensajes. Además, los programas concurrentes deben, en general, colaborar para llegar a un objetivo común para lo cual la sincronización entre procesos es crucial.
+Los programas concurrentes están compuestos por **procesos** (threads o componentes) que necesitan interactuar, existen diferentes formas de interactuar como la memoria compartida o el intercambio de mensajes. Además, los programas concurrentes deben, en general, colaborar para llegar a un objetivo común para lo cual la sincronización entre procesos es crucial.
 
 ## Problemas comunes de los programas concurrentes
 
@@ -38,13 +38,21 @@ Los programas concurrentes están compuestos por procesos (threads o componentes
 - Problemas de uso no exclusivo de recursos compartidos
 - **Livelock**: dos o más procesos no pueden avanzar en su ejecución porque continuamente responden a los cambios en el estado de otros procesos
 
+!!! note "ATOMICO"
+    Que algo sea atomico significa que no puede ser interrupido hasta que se completa su ejecucion
+
 ## Semántica de los programas concurrentes
 
-Una semántica típica para los programas concurrentes está basada en sistemas de transición de estados. Un sistema de transición de estados es un grafo en el cual:
+Una semántica típica para los programas concurrentes está basada en **sistemas de transición de estados**. Mi programa tiene **estados**, algo que demora un tiempo en estar en esa condición, y va a tener **eventos** que ocurren en el momento que me cambian el estado actual. Un sistema de transición de estados, _nos permite ver los estados posibles y que eventos me hacen cambiar de estado_, es un grafo dirigido en el cual:
 
 - Los nodos son los estados del sistema
 - Las aristas son las transiciones atómicas de estado en estado, dadas por las sentencias del sistema (líneas que unen estados)
 - Hay un nodo distinguido que reconoceremos como el estado inicial.
+
+![Sistema de transicion de Estados](../imagenes/u1/transicion_estados.png)
+
+!!! note
+    Un sistema es determinístico, cuando estando en un estado, frente al mismo evento, va al mismo lugar siempre
 
 ## Como se ejecutan los procesos concurrentes
 
@@ -111,7 +119,8 @@ Los procesos son independientes, llevan bastante información de estados, e inte
 1. Se tarda menos tiempo en crear un hilo nuevo en un proceso existente que crear un nuevo proceso
 2. Se tarda menos en terminar un hilo que un proceso
 3. Se tarda menos en cambiar entre dos hilos de un mismo proceso.
-   Los hilos aumentan la eficiencia de la comunicación entre programas en ejecución. La comunicación entre procesos debe intervenir el núcleo para ofrecer protección de los recursos y realizar la comunicación misma. La comunicación entre hilos no requiere la invocación al núcleo. Por lo tanto, si hay una aplicación que debe implementarse como un conjunto de unidades de ejecución relacionadas, es más eficiente hacerlo con una colección de hilos que con una colección de procesos separados. Cuando un hilo está en ejecución, posee el acceso a todos los recursos que tiene asignados la tarea.
+
+Los hilos aumentan la eficiencia de la comunicación entre programas en ejecución. La comunicación entre procesos debe intervenir el núcleo para ofrecer protección de los recursos y realizar la comunicación misma. La comunicación entre hilos no requiere la invocación al núcleo. Por lo tanto, si hay una aplicación que debe implementarse como un conjunto de unidades de ejecución relacionadas, es más eficiente hacerlo con una colección de hilos que con una colección de procesos separados. Cuando un hilo está en ejecución, posee el acceso a todos los recursos que tiene asignados la tarea.
 
 ## Que tiene un hilo
 
@@ -141,7 +150,8 @@ Compartir recursos globales es riesgoso, esto ocasiona problemas por esto necesi
 1. Los procesos no tienen conocimiento de los demás
 2. Los procesos tienen conocimiento indirecto de los demás: No conocen a los otros por sus identificadores per muestran cooperación
 3. Los procesos se conocen directamente: se comunican por el identificador y por trabajar en conjunto
-   Los procesos concurrentes entran en conflicto cuando compiten por el uso del mismo recurso. La ejecución de un proceso puede influir en el comportamiento de los procesos que compiten. Cuando hay procesos en competencia, se debe solucionar 3 problemas de control:
+
+Los procesos concurrentes entran en conflicto cuando compiten por el uso del mismo recurso. La ejecución de un proceso puede influir en el comportamiento de los procesos que compiten. Cuando hay procesos en competencia, se debe solucionar 3 problemas de control:
 
 - La necesidad de exclusión mutua
 - Hacer que se cumpla la exclusión mutua genera un interbloqueo

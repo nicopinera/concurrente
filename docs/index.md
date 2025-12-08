@@ -7,6 +7,6 @@ Bienvenido/a al apunte de la materia. Este material culbre desde los conceptos b
 - [Temario general](materia-apunte/temario.md)
 - Desarrollo de cada unidad
 - Ejeplos de Codigo
-- Preguntas Tipicas
+- [Preguntas Tipicas de Coloquio](materia-apunte/preguntas_coloqui.md)
 
 ---
