@@ -1,14 +1,57 @@
 # Preguntas de Coloquio
 
-- Concepto del interleaving y como se ejecutan los procesos concurrentes
-- Que es un sistema critico
-- Qué problema existe con el testing
-- Que cosas pueden suceder con un hilo (concepto de starvation, deadlock, exclusión mutua, condición de carrera, livelock)
-- Determinismo e indeterminismo (este concepto se repite mucho en autómata y redes de Petri)
-- Definición de proceso, hilo (puedes darle un ejemplo para darte a entender), ¿cuál es más fácil de crear y de matar?
-- Que es una sección critica
-- Estados de los hilos (son 7)
-- Que es un sistema reactivo
+## Unidad 1
+
+### ¿Qué es una clase viva?
+
+Toda aquella clase que implemente la interfaz Runnable o extienda de la clase Thread y se vuelva capaz de ser ejecutada por un hilo. Cuando genero un “New Thread” se le pasa por parámetro una instancia de una clase que tenga implementado el método “run ()”.
+
+### Cuándo termina un programa?
+
+Cuando todos los hilos no daemon terminen. Si un hilo daemon se está ejecutando y se termina el programa, ese hilo también termina.
+
+### Concepto del interleaving y como se ejecutan los procesos concurrentes
+
+Los procesos concurrentes se ejecutan intercalando las acciones atomicas que los componen, llamamos a esto interleaving, se refiere a la forma en que las instrucciones de múltiples hilos o procesos se mezclan y ejecutan de manera no secuencial. Ir cambiando entre los procesos actuales.
+
+### Que es un sistema critico
+
+Sistemas cuyas fallas pueden ocasionar daños de gran importancia, incluyendo perdida de vidas humanas, catastrofes ecologicas y grandes perdidas financieras.
+
+### Qué problema existe con el testing
+
+El testing raramente permiten generalizar la ausencia de errores, garantiza la presencia de errores pero no la usencia de los mismos.
+
+### Que cosas pueden suceder con un hilo (concepto de starvation, deadlock, exclusión mutua, condición de carrera, livelock)
+
+### Determinismo e indeterminismo
+
+Un sistema es deterministico cuando estando en un estado frente al mismo evento, va al mismo lugar siempre. Un sistema indeterministico es aleatorio al estado que puede saltar frente al mismo input.
+
+### Definición de proceso, hilo (puedes darle un ejemplo para darte a entender), ¿cuál es más fácil de crear y de matar?
+
+Un proceso es una unidad de atividad que se caracteriza por la ejeucion de una secuencia de instrucciones, un estado actual y un conjunto de recursos del sistema. Un hilo permite a un proceso ejecutar varias tareas a la vez, los distintos hilos de ejecucion comparten recursos, permitiendo llevar a cabo distintas funciones simultaneamente. Los procesos son independientes, llevan bastante información de estados, e interactúan sólo a través de mecanismos de comunicación dados por el sistema. Los hilos generalmente comparten otros recursos de forma directa. Es más simple y rápido cambiar de un hilo a otro dentro del mismo proceso, que cambiar de un proceso a otro. Este fenómeno se debe a que los hilos comparten datos y espacios de direcciones, mientras que los procesos, al ser independientes, no lo hacen.
+
+### Que es una sección critica
+
+### Estados de los hilos (son 7)
+
+- **Nuevo**: El hilo ha sido instanciado pero aún no ha comenzado su ejecución.
+- **Ready to Run**: Está en la cola de espera, listo para ser ejecutado tan pronto como el planificador (scheduler) del sistema le ceda tiempo de CPU.
+- **Running**: Actualmente está utilizando la CPU.
+- **Sleeping**: El hilo se ha puesto a dormir explícitamente (`Thread.sleep()`). La diferencia clave es que volverá automáticamente al estado "Ready to Run" después de que pase el tiempo especificado.
+- **Blocking**: Está esperando un recurso, generalmente la adquisición de un bloqueo (lock) o un monitor para ingresar a una sección crítica de código.
+- **Waiting**: Similar a Bloqueado/Sleeping, pero este hilo está esperando indefinidamente a que otro hilo le envíe una señal o notificación específica (`wait()` y `notify()`). No tiene un temporizador.
+- **Dead**: La ejecución del hilo ha finalizado, ya sea porque completó su tarea o porque se produjo una excepción no controlada.
+
+### Que es un sistema reactivo
+
+En un sistema reactivo, su funcionamiento involucra la interaccion permanente con el ambiente y otros procesos, no computan resultados y suelen no requerir que terminen.
+
+### Diferencia entre estado bloqueado y dormido
+
+El estado bloqueado esta esperando un recurso, en el estado dormido es por un tiempo determinado, no necesariamente esta esperando un recurso.
+
 - Que es un autómata (tener cuidado aquí hay que saber esta relación con el tp final, y las expresiones regulares)
 - Concepto de símbolo, vocabulario o alfabeto, cadena, cadena vacía, concatenación de cadenas, universo del discurso.
 - Que es el lenguaje y no vacío
@@ -66,6 +109,4 @@
 - Que es una expresion regular
 - Para que sirven las expresiones regulares
 - Entender la relación entre las expresiones regulares y las invariantes (va para el tp final tambien)
-- ¿Qué es una clase viva?: Toda aquella clase que implemente la interfaz Runnable o extienda de la clase Thread y se vuelva capaz de ser ejecutada por un hilo. Cuando genero un “New Thread” se le pasa por parámetro una instancia de una clase que tenga implementado el método “run ()”.
-- ¿Cuándo termina un programa? Cuando todos los hilos no daemon terminen. Si un hilo daemon se esta ejecutando y se termina el programa, ese hilo también termina.
 - Concepto de lock
